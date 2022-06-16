@@ -5,7 +5,7 @@ const { puzzlesAndSolutions } = require("../controllers/puzzle-strings");
 const Solver = require("../controllers/sudoku-solver.js");
 const solver = new Solver();
 
-suite("Unit Tests", () => {
+suite("UnitTests", () => {
   suite("Puzzle String Validation", () => {
     test("Handles a valid puzzle string of 81 characters.", () => {
       const puzzle = puzzlesAndSolutions[0][0];

@@ -8,7 +8,7 @@ module.exports = function (app) {
   app.route("/api/check").post((req, res) => {
     // Pull the puzzle string, a coordinate, and the value to check from
     // the request body.
-    const { puzzle, coordinate, value } = req.body;
+    let { puzzle, coordinate, value } = req.body;
 
     // Make sure all of the above are present in the request body.
     if (!puzzle || !coordinate || !value) {
@@ -25,7 +25,8 @@ module.exports = function (app) {
     }
 
     // Make sure the value given is a number between 1 and 9.
-    if (value < 0 || value > 9) {
+    value = parseInt(value);
+    if (isNaN(value) === true || value < 0 || value > 9) {
       return res.json({ error: "Invalid value" });
     }
 
